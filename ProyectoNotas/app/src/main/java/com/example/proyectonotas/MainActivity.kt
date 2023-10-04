@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.proyectonotas.componentes.BottomBar
 import com.example.proyectonotas.componentes.FAB
 import com.example.proyectonotas.componentes.ToolBar
 import com.example.proyectonotas.screens.CardView
@@ -43,7 +44,8 @@ class MainActivity : ComponentActivity() {
 fun ViewContainer() {
     Scaffold (
         topBar = { ToolBar() },
-        content = { Content()}
+        content = { Content()},
+        bottomBar = {BottomBar()}//poner la barra de abajo
         //floatingActionButton = { FAB() }
     )
 }
