@@ -36,7 +36,7 @@ fun ReminderCard(title: String, subtitle: String?, time: String) {
             ) {
                 Icon(imageVector = Icons.Filled.Notifications, contentDescription = "Time", tint = Color.Gray)
                 Spacer(modifier = Modifier.width(4.dp))
-                Text(text = time, color = Color.Gray)
+                Text(text = time, color = Color.Gray )
             }
         }
     }
