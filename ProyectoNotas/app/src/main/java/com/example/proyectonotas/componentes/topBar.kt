@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.dp
 import com.example.proyectonotas.R
 
 //ENCABEZADO DE LA APLICACION
-@Preview
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ToolBar() {
