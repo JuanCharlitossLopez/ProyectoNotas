@@ -1,4 +1,3 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
 
 package com.example.proyectonotas
 
@@ -18,10 +17,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.proyectonotas.componentes.BottomBar
 import com.example.proyectonotas.componentes.FAB
+import com.example.proyectonotas.componentes.SearchBar
 import com.example.proyectonotas.componentes.ToolBar
 import com.example.proyectonotas.screens.CardView
 import com.example.proyectonotas.screens.ListCard
@@ -43,8 +44,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ViewContainer() {
     Scaffold (
-        topBar = { ToolBar() },
+       topBar = { ToolBar() },
         content = { Content()},
+
         bottomBar = {BottomBar()}//poner la barra de abajo
         //floatingActionButton = { FAB() }
     )
@@ -61,7 +63,7 @@ fun Content() {
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Gray)
-            .padding(top = 60.dp)
+            .padding(top = 160.dp)
     )
     {/*
         TextCard(title = "Material Design", content = "Material design is a foundation upon which applications for Google platforms are built. These principles are intended for a wide audience.")
