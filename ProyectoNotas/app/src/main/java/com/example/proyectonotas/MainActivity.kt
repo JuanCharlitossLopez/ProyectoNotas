@@ -8,14 +8,21 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
@@ -23,10 +30,8 @@ import androidx.compose.ui.unit.dp
 import com.example.proyectonotas.componentes.BottomBar
 import com.example.proyectonotas.componentes.FAB
 import com.example.proyectonotas.componentes.SearchBar
-import com.example.proyectonotas.componentes.ToolBar
-import com.example.proyectonotas.screens.CardView
-import com.example.proyectonotas.screens.ListCard
-import com.example.proyectonotas.screens.ReminderCard
+
+import com.example.proyectonotas.screens.NoteCard
 import com.example.proyectonotas.screens.TextCard
 
 class MainActivity : ComponentActivity() {
@@ -44,11 +49,10 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ViewContainer() {
     Scaffold (
-       topBar = { ToolBar() },
+        topBar = { BottomBar() },
         content = { Content()},
 
-        bottomBar = {BottomBar()}//poner la barra de abajo
-        //floatingActionButton = { FAB() }
+        floatingActionButton = { FAB() }
     )
 }
 
@@ -62,20 +66,40 @@ fun Content() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Gray)
-            .padding(top = 160.dp)
-    )
-    {/*
-        TextCard(title = "Material Design", content = "Material design is a foundation upon which applications for Google platforms are built. These principles are intended for a wide audience.")
-        TextCard(title = "Crepe Recipe", content = "1. In a blender, combine flour, sugar, salt, milk, eggs, and butter.\n2. Puree until mixture is smooth and bubbles form on top, about 30 seconds. Let batter sit.")
-        ListCard(title = "Grocery list", items = listOf("Paper towels", "Kale", "Tomatoes", "Bread", "Avocado", "Olive Oil", "Tofu", "Pepper"))
-        ListCard(title = "Surprise party for Kristin!", items = listOf())
-        ListCard(title = "Skiing prep", items = listOf("Googles", "Gloves", "Helmet", "Jacket", "Pants", "Skis", "Boots", "Slippers"))
-        TextCard(title = "1175 Borregas Ave", content = "Sunnyvale, CA 94089")*/
-        Text(text = "Recordatorios próximos", color = Color.Black, modifier = Modifier.padding(bottom = 8.dp))
-        ReminderCard(title = "Hola 1", subtitle = null, time = "Mañana, 8:00 a.m.")
-        ReminderCard(title = "Hola 3", subtitle = null, time = "Mañana, 8:00 a.m.")
-        ReminderCard(title = "Hola", subtitle = "Me", time = "Mañana, 8:00 a.m.")
+            .clip(shape = MaterialTheme.shapes.small)
+            .background(MaterialTheme.colorScheme.tertiary)
+            .padding(18.dp)
+
+    ) {
+
+        Row(
+            modifier = Modifier
+                .padding(50.dp)
+                .offset(x = 15.dp)
+
+        ) {
+            Button(onClick = { /*TODO*/ }) {
+                Text(text = "Notas", style = MaterialTheme.typography.titleLarge)
+
+            }
+            Spacer(modifier = Modifier.width(14.dp))
+            Button(onClick = { /*TODO*/ }) {
+                Text(text = "Tareas", style = MaterialTheme.typography.titleLarge)
+
+            }
+        }
+        NoteCard(title = "Note 1", subtitle = "My day was wonderful", time = "Yesterday, 7:00 a.m.")
+        NoteCard(
+            title = "Nota 2",
+            subtitle = "I have to do all my homework",
+            time = "Today, 6:00 p.m."
+        )
+        NoteCard(title = "Nota 3", subtitle = "Need to pay the bills", time = "Today, 8:00 a.m.")
+        NoteCard(title = "Nota 4", subtitle = "Too bored", time = "Yesterday, 9:00 a.m.")
+        NoteCard(title = "Nota 5", subtitle = "Description", time = "Domingo, 10:00 a.m.")
+        NoteCard(title = "Nota 6", subtitle = "Description", time = "Sábado, 4:00 p.m.")
+
+
     }
 }
 

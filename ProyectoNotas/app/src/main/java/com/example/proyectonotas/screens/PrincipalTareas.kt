@@ -10,16 +10,20 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
+import com.example.proyectonotas.componentes.FAB
+import com.example.proyectonotas.componentes.ToolBar
 
 
 @Composable
-fun ReminderCard(title: String, subtitle: String?, time: String) {
+fun NoteCard(title: String, subtitle: String?, time: String) {
     Box(
         modifier = Modifier
-            .padding(horizontal = 16.dp, vertical = 4.dp)
+            .padding(horizontal = 1.dp, vertical = 4.dp)
             .fillMaxWidth()
             .background(Color.White, shape = RoundedCornerShape(8.dp))
             .padding(16.dp)
@@ -48,12 +52,39 @@ fun a() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.LightGray)
-            .padding(16.dp)
+            .background(Color.Gray)
+            .padding(18.dp)
+
     ) {
-        Text(text = "Recordatorios próximos", color = Color.Black, modifier = Modifier.padding(bottom = 8.dp))
-        ReminderCard(title = "Hola 1", subtitle = null, time = "Mañana, 8:00 a.m.")
-        ReminderCard(title = "Hola 3", subtitle = null, time = "Mañana, 8:00 a.m.")
-        ReminderCard(title = "Hola", subtitle = "Me", time = "Mañana, 8:00 a.m.")
+
+        Row (
+            modifier= Modifier
+                .padding(16.dp)
+                .offset(x = 70.dp)
+
+        ){
+            Button(onClick = { /*TODO*/ }) {
+                Text(text = "Notas", style =  MaterialTheme.typography.titleLarge)
+
+            }
+            Spacer(modifier = Modifier.width(16.dp))
+            Button(onClick = { /*TODO*/ }) {
+                Text(text = "Tareas", style =  MaterialTheme.typography.titleLarge)
+
+            }
+
+
+        }
+
+       
+        NoteCard(title = "Note 1", subtitle = "My day was wonderful", time = "Yesterday, 7:00 a.m.")
+        NoteCard(title = "Nota 2", subtitle = "I have to do all my homework", time = "Today, 6:00 p.m.")
+        NoteCard(title = "Nota 3", subtitle = "Need to pay the bills", time = "Today, 8:00 a.m.")
+        NoteCard(title = "Nota 4", subtitle = "Too bored", time = "Yesterday, 9:00 a.m.")
+        NoteCard(title = "Nota 5", subtitle = "Description", time = "Domingo, 10:00 a.m.")
+        NoteCard(title = "Nota 6", subtitle = "Description", time = "Sábado, 4:00 p.m.")
+
+
+
     }
 }
