@@ -12,10 +12,13 @@ import androidx.compose.material3.Text
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import com.example.proyectonotas.Content
 import com.example.proyectonotas.componentes.BottomBar
 import com.example.proyectonotas.componentes.FAB
@@ -26,9 +29,8 @@ import com.example.proyectonotas.componentes.FAB
 @Composable
 fun ViewContainer() {
     Scaffold (
-        content = { Content() },
+        content = { Content() }
 
-        floatingActionButton = { FAB() }
     )
 }
 
@@ -38,8 +40,21 @@ fun ViewContainer() {
 @Composable
 fun contenedor(){
     val scrollState = rememberScrollState();
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+ //           .clip(shape = MaterialTheme.shapes.small)
+   //         .background(MaterialTheme.colorScheme.tertiary)
+            .padding(19.dp)
+            .verticalScroll(scrollState)  // Esto hace que el contenido sea desplazable
+
+    ) {
 
 
+
+
+
+    }
 }
 
 
