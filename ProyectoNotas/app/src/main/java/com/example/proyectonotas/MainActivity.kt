@@ -15,11 +15,8 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-<<<<<<< HEAD
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-=======
->>>>>>> fca301bd1f172065eac42fdc99e51b3786ec8b2f
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -37,11 +34,7 @@ import com.example.proyectonotas.componentes.FAB
 import com.example.proyectonotas.componentes.SearchBar
 
 import com.example.proyectonotas.screens.NoteCard
-<<<<<<< HEAD
-//import com.example.proyectonotas.screens.TextCard
-=======
-import com.example.proyectonotas.screens.TextCard
->>>>>>> fca301bd1f172065eac42fdc99e51b3786ec8b2f
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,27 +72,18 @@ fun Content() {
             .fillMaxSize()
             .clip(shape = MaterialTheme.shapes.small)
             .background(MaterialTheme.colorScheme.tertiary)
-<<<<<<< HEAD
             .padding(19.dp)
             .verticalScroll(scrollState)  // Esto hace que el contenido sea desplazable
-=======
             .padding(18.dp)
->>>>>>> fca301bd1f172065eac42fdc99e51b3786ec8b2f
 
     ) {
 
         Row(
             modifier = Modifier
                 .padding(50.dp)
-<<<<<<< HEAD
                 .offset(x = 20.dp)
                 .offset(y = 30.dp)
-
-
-
-=======
                 .offset(x = 15.dp)
->>>>>>> fca301bd1f172065eac42fdc99e51b3786ec8b2f
 
         ) {
             Button(onClick = { /*TODO*/ }) {
