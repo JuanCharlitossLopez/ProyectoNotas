@@ -23,43 +23,10 @@ import com.example.proyectonotas.Content
 import com.example.proyectonotas.componentes.BottomBar
 import com.example.proyectonotas.componentes.FAB
 
-@OptIn(ExperimentalMaterial3Api::class)
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@Preview
-@Composable
-fun ViewContainer() {
-    Scaffold (
-        content = { Content() }
-
-    )
-}
 
 
 
 
-@Composable
-fun contenedor(){
-    val scrollState = rememberScrollState();
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
- //           .clip(shape = MaterialTheme.shapes.small)
-   //         .background(MaterialTheme.colorScheme.tertiary)
-            .padding(19.dp)
-            .verticalScroll(scrollState)  // Esto hace que el contenido sea desplazable
-
-    ) {
-
-
-
-
-
-    }
-}
-
-
-
-/*
 @Composable
 fun CardView(title: String, content: @Composable () -> Unit) {
     Box(
@@ -112,4 +79,3 @@ fun PreviewInterface() {
         TextCard(title = "1175 Borregas Ave", content = "Sunnyvale, CA 94089")
     }
 }
-*/
