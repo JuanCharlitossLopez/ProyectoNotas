@@ -45,7 +45,6 @@ fun BottomBar(){
             .background(Color.White)
             .padding(15.dp, 10.dp, 10.dp, 5.dp)
     ) {
-        //Buttons microfono
         IconButton(onClick = { /*TODO*/ }) {
             Icon(
                 imageVector = Icons.Filled.List,
@@ -58,7 +57,7 @@ fun BottomBar(){
 
 
             )}
-    } //Buttons Camara
+    }
     IconButton(onClick = { /*TODO*/ }) {
         Icon(
             imageVector = Icons.Filled.Search,

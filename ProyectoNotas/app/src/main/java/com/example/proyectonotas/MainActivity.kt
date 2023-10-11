@@ -72,25 +72,24 @@ fun Content() {
             .fillMaxSize()
             .clip(shape = MaterialTheme.shapes.small)
             .background(MaterialTheme.colorScheme.tertiary)
-            .padding(19.dp)
+            .padding(12.dp)
             .verticalScroll(scrollState)  // Esto hace que el contenido sea desplazable
-            .padding(18.dp)
 
     ) {
 
         Row(
             modifier = Modifier
                 .padding(50.dp)
-                .offset(x = 20.dp)
+                .offset(x = 10.dp)
                 .offset(y = 30.dp)
-                .offset(x = 15.dp)
+
 
         ) {
             Button(onClick = { /*TODO*/ }) {
                 Text(text = "Notas", style = MaterialTheme.typography.titleLarge)
 
             }
-            Spacer(modifier = Modifier.width(14.dp))
+            Spacer(modifier = Modifier.width(10.dp))
             Button(onClick = { /*TODO*/ }) {
                 Text(text = "Tareas", style = MaterialTheme.typography.titleLarge)
 
