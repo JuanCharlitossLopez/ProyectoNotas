@@ -26,7 +26,8 @@
 
         </activity>
         <activity android:name=".screens.PrincipalNotas" />
-
+        <activity android:name=".screens.PrincipalTareas" />
+        <activity android:name=".screens.AddTask" />
     </application>
 
 </manifest>
