@@ -36,6 +36,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.proyectonotas.componentes.BottomBar
 import com.example.proyectonotas.componentes.FAB
+import com.example.proyectonotas.datos.NotasDAO
 import com.example.proyectonotas.screens.PrincipalTareas
 
 

@@ -53,7 +53,8 @@ fun MyEmptyScreen() {
     }
 }
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true, widthDp = 300)
+@Preview
 @Composable
 fun MyEmptyScreenPreview() {
     Column(modifier = Modifier.fillMaxSize()) {
