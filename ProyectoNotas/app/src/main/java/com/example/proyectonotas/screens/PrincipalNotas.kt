@@ -1,67 +1,154 @@
 package com.example.proyectonotas.screens
 
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import android.content.Intent
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Checkbox
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.TextField
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.proyectonotas.MainActivity
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
-@Composable
-fun CardView(title: String, content: @Composable () -> Unit) {
-    Box(
-        modifier = Modifier
-            .padding(8.dp)
-            .fillMaxWidth()
-            .background(Color.LightGray)
-            .padding(16.dp)
-    ) {
-        Column {
-            Text(text = title, color = Color.Black, modifier = Modifier.padding(bottom = 8.dp))
-            content()
+
+class PrincipalNotas : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            MyEmptyScreen()
         }
     }
 }
 
 @Composable
-fun TextCard(title: String, content: String) {
-    CardView(title = title) {
-        Text(text = content, color = Color.Black)
-    }
-}
-
-@Composable
-fun ListCard(title: String, items: List<String>) {
-    CardView(title = title) {
-        LazyColumn {
-            items(items) { item ->
-                Row(
-                    modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Checkbox(checked = false, onCheckedChange = null, modifier = Modifier.padding(end = 8.dp))
-                    Text(text = item, color = Color.Black)
-                }
-            }
+fun MyEmptyScreen() {
+    Column(modifier = Modifier
+        .fillMaxSize()
+    ){
+        CustomTopBar() // La TopBar que creamos anteriormente
+        editarTitulo()
+        editarSubTitulo()
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center) {
         }
     }
 }
 
+//@Preview(showBackground = true, widthDp = 300)
 @Preview
 @Composable
-fun PreviewInterface() {
+fun MyEmptyScreenPreview() {
+    Column(modifier = Modifier.fillMaxSize()) {
+        CustomTopBar()
+        editarTitulo()
+        editarSubTitulo()
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+
+        }
+    }}
+@Preview
+@Composable
+fun CustomTopBar() {
+    val context = LocalContext.current
+    val currentDate = remember { getCurrentDate() }
+
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(56.dp) // Altura típica para una TopAppBar
+            .background(Color.LightGray), //  color
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        IconButton(onClick = {
+            val intent = Intent(context, MainActivity::class.java)
+            context.startActivity(intent)
+        }) {
+            Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Atrás")
+        }
+
+        Text(text = "Modificado: $currentDate", fontWeight = FontWeight.Bold, fontSize = 16.sp)
+
+        IconButton(onClick = { /* Acción para el ícono de menú */ }) {
+            Icon(imageVector = Icons.Default.MoreVert, contentDescription = "Menú")
+        }
+    }
+}
+
+fun getCurrentDate(): String {
+    val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+    return sdf.format(Date())
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun editarTitulo() {
+    var textState by remember { mutableStateOf("") }
+
+    TextField(
+        value = textState,
+        onValueChange = { textState = it },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        textStyle = androidx.compose.ui.text.TextStyle(
+            fontSize = 48.sp,
+            fontWeight = FontWeight.Bold
+        ),
+        placeholder = {
+            Text(text = "Tittle", fontSize = 48.sp, fontWeight = FontWeight.Bold)
+        }
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun editarSubTitulo() {
+    var textState by remember { mutableStateOf("") }
+
+    TextField(
+        value = textState,
+        onValueChange = { textState = it },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 16.dp, end = 16.dp),
+        textStyle = androidx.compose.ui.text.TextStyle(
+            fontSize = 16.sp
+        ),
+        placeholder = {
+            Text(text = "Texto más pequeño aquí", fontSize = 16.sp)
+        }
+    )
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun EditableFieldsPreview() {
     Column {
-        TextCard(title = "Material Design", content = "Material design is a foundation upon which applications for Google platforms are built. These principles are intended for a wide audience.")
-        TextCard(title = "Crepe Recipe", content = "1. In a blender, combine flour, sugar, salt, milk, eggs, and butter.\n2. Puree until mixture is smooth and bubbles form on top, about 30 seconds. Let batter sit.")
-        ListCard(title = "Grocery list", items = listOf("Paper towels", "Kale", "Tomatoes", "Bread", "Avocado", "Olive Oil", "Tofu", "Pepper"))
-        ListCard(title = "Surprise party for Kristin!", items = listOf())
-        ListCard(title = "Skiing prep", items = listOf("Googles", "Gloves", "Helmet", "Jacket", "Pants", "Skis", "Boots", "Slippers"))
-        TextCard(title = "1175 Borregas Ave", content = "Sunnyvale, CA 94089")
+        editarTitulo()
+        editarSubTitulo()
     }
 }
