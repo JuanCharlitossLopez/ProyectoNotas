@@ -4,7 +4,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Shapes
 import androidx.compose.ui.unit.dp
 
-
+//Shapes a usar
 // Agregar las esquinas redondeadas
 val Shapes = Shapes (
     small = RoundedCornerShape(4.dp),
