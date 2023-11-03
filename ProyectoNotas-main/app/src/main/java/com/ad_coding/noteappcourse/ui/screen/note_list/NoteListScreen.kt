@@ -37,6 +37,7 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
@@ -45,6 +46,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ad_coding.noteappcourse.domain.model.Note
+import com.ad_coding.noteappcourse.ui.screen.note.NoteEvent
+import com.ad_coding.noteappcourse.ui.screen.note.NoteScreen
+import com.ad_coding.noteappcourse.ui.screen.note.NoteState
+import com.ad_coding.noteappcourse.ui.screen.note.TareasScreen
+import com.ad_coding.noteappcourse.window.infoWindow
+import com.ad_coding.noteappcourse.window.rememberWindow
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -54,13 +61,27 @@ fun NoteListScreen(
     onNoteClick: (Note) -> Unit,
     onAddNoteClick: () -> Unit
 ) {
+    val context = LocalContext.current
     var searchText by remember { mutableStateOf(TextFieldValue()) }
     var filteredNotes by remember { mutableStateOf(noteList) }
     var searchResultText by remember { mutableStateOf("") }
 
     // Inicializar filteredNotes con todas las notas al principio
     filteredNotes = noteList
-
+    val windowInfo = rememberWindow()//Para detectar el tipo de pantalla
+    var sizeicon = 0
+    //PANTALLA PEQUEÑA
+    if (windowInfo.windowHeightInfo is infoWindow.tipoPantalla.Compact) {
+        sizeicon = 15
+    }
+    //PANTALLA MEDIANA
+    if (windowInfo.windowHeightInfo is infoWindow.tipoPantalla.Medium) {
+        sizeicon = 32
+    }
+    //PANTALLA GRANDE
+    if (windowInfo.windowHeightInfo is infoWindow.tipoPantalla.Expanded) {
+        sizeicon = 48
+    }
     Scaffold(
         topBar = {
             TopAppBar(
@@ -99,7 +120,8 @@ fun NoteListScreen(
                     ) {
                         Icon(
                             imageVector = Icons.Default.Search,
-                            contentDescription = "Buscar"
+                            contentDescription = "Buscar",
+                            modifier = Modifier.size(sizeicon.dp)
                         )
                     }
                 }
@@ -143,6 +165,7 @@ fun NoteListScreen(
                     Button(
                         onClick = {
                             // Lógica del segundo botón
+                            
                         }
                     ) {
                         Text("Tareas")
@@ -194,14 +217,6 @@ private fun filterNotes(noteList: List<Note>, query: String): List<Note> {
         note.title.contains(query, ignoreCase = true)
     }
 }
-
-
-
-
-
-
-
-
 
 
 @Preview

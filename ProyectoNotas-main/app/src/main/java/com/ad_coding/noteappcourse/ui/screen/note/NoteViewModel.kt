@@ -104,6 +104,8 @@ class NoteViewModel @Inject constructor(
                 }
                 sendEvent(UiEvent.NavigateBack)
             }
+
+            else -> {}
         }
     }
 }
