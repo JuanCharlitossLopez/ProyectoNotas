@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Proyecto Notas</string>
+    <string name="navigation_drawer">Navigation Drawer</string>
+    <string name="navigation_rail">Navigation Rail</string>
+    <string name="navigation_bottom">Navigation Bottom</string>
+    <string name="navigation_back">Atras</string>
+    <string name="details_screen">Detalles</string>
+    <string name="notas">Notas</string>
+    <string name="tareas">Tareas</string>
+    <string name="busqueda">Buscar...</string>
+    <string name="titulo">Título</string>
+    <string name="contenido">Contenido</string>
+    <string name="required_fields">Campos requeridos</string>
+    <string name="save_action">Guardar</string>
+    <string name="no_item_description">No existen registros</string>
+    <string name="item_detail_title">Detalles de Nota</string>
+    <string name="item_detail_title2">Detalles de Tarea</string>
+    <string name="edit_item_title">Editar Nota</string>
+    <string name="edit_item_title2">Editar Tarea</string>
+    <string name="back_button">Regresar</string>
+    <string name="delete">Borrar</string>
+    <string name="nota">Nota</string>
+    <string name="attention">Confirmación</string>
+    <string name="delete_question">¿Estas seguro de eliminar la nota?</string>
+    <string name="delete_question2">¿Estas seguro de eliminar la tarea?</string>
+    <string name="no">No</string>
+    <string name="yes">Sí</string>
+    <string name="fecha">Fecha</string>
+    <string name="fechaACompletar">Para completar</string>
+    <string name="completado">Completada</string>
+    <string name="marcar">Completado</string>
+    <string name="record_audio">Grabar audio</string>
+    <string name="reminder">Agendar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="recordatorio">Recordatorio:</string>
+
+</resources>

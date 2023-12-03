@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Note Proyect</string>
+    <string name="navigation_drawer">Navigation Drawer</string>
+    <string name="navigation_rail">Navigation Rail</string>
+    <string name="navigation_bottom">Navigation Bottom</string>
+    <string name="navigation_back">Back</string>
+    <string name="details_screen">Details</string>
+    <string name="notas">Notes</string>
+    <string name="tareas">Tasks</string>
+    <string name="busqueda">Search...</string>
+    <string name="titulo">Tittle</string>
+    <string name="contenido">Content</string>
+    <string name="required_fields">Required Fields</string>
+    <string name="save_action">Save</string>
+    <string name="no_item_description">Empty</string>
+    <string name="item_detail_title">Note Details</string>
+    <string name="item_detail_title2">Task Details</string>
+    <string name="edit_item_title">Edit Note</string>
+    <string name="edit_item_title2">Edit Task</string>
+    <string name="back_button">Back</string>
+    <string name="delete">Delete</string>
+    <string name="nota">Note</string>
+    <string name="attention">Confirm</string>
+    <string name="delete_question">¿Are you sure to delete the note?</string>
+    <string name="delete_question2">¿Are you sure to delete the task?</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="fecha">Date</string>
+    <string name="fechaACompletar">To Complete</string>
+    <string name="completado">Completed</string>
+    <string name="marcar">Complete</string>
+    <string name="record_audio">Record audio</string>
+    <string name="reminder">Schedule</string>
+    <string name="cancelar">Cancel</string>
+    <string name="recordatorio">Reminder:</string>
+
+</resources>
